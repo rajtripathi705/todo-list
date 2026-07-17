@@ -33,7 +33,7 @@
       span.className = 'text'; span.textContent = t.text;
 
       const del = document.createElement('button');
-      del.className = 'btn'; del.textContent = '✕';
+      del.className = 'btn delete'; del.textContent = '✕';
       del.title = 'Delete';
       del.addEventListener('click', () => {
         li.classList.add('todo-exit');

@@ -1,4 +1,4 @@
-:root{--bg:#f7fafc;--card:#ffffff;--accent:#3b82f6;--muted:#6b7280}
+:root{--bg:#f7fafc;--card:#ffffff;--accent:#3b82f6;--muted:#6b7280;--danger:#ef4444}
 *{box-sizing:border-box}
 body{font-family:Segoe UI,system-ui,Arial,sans-serif;background:var(--bg);margin:0;padding:24px;display:flex;min-height:100vh;align-items:flex-start}
 .app{width:100%;max-width:640px;margin:0 auto;background:var(--card);padding:20px;border-radius:10px;box-shadow:0 6px 20px rgba(10,20,30,0.06)}
@@ -25,6 +25,8 @@ li.completed .text{opacity:0.6;text-decoration:line-through;transition:opacity 1
 	100%{opacity:0;transform:translateX(8px) scale(0.98);height:0;padding-top:0;padding-bottom:0;margin:0}
 }
 .btn{background:transparent;border:0;color:var(--muted);cursor:pointer}
+.btn.delete{color:var(--danger)}
+.btn.delete:hover{background:rgba(239,68,68,0.08);border-radius:6px}
 .hint{color:var(--muted);font-size:13px;margin-top:12px}
 
 /* Navbar */
