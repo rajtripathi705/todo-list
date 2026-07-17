@@ -1,0 +1,10 @@
+/* Separate stylesheet for navbar and danger styles */
+
+.nav{width:100%;max-width:640px;margin:0 auto 12px;background:var(--accent);padding:10px 16px;border-radius:10px;box-shadow:0 8px 24px rgba(59,130,246,0.12);display:flex;align-items:center}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;width:100%}
+.brand{font-weight:700;color:#fff;font-size:16px;letter-spacing:0.2px}
+.nav-actions{display:flex;gap:8px;align-items:center}
+#todo-count{background:rgba(255,255,255,0.18);color:#fff;padding:6px 10px;border-radius:999px;font-weight:600;font-size:13px}
+
+.btn.delete{color:var(--danger)}
+.btn.delete:hover{background:rgba(239,68,68,0.08);border-radius:6px}
