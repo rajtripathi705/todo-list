@@ -14,6 +14,9 @@
 
   function render() {
     const todos = load();
+    // update navbar count if present
+    const countEl = document.getElementById('todo-count');
+    if (countEl) countEl.textContent = String(todos.length);
     listEl.innerHTML = '';
     todos.forEach((t, idx) => {
       const li = document.createElement('li');
