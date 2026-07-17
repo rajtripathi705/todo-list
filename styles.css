@@ -7,8 +7,22 @@ h1{margin:0 0 12px;font-size:20px}
 #todo-input{flex:1;padding:10px;border:1px solid #e6e9ef;border-radius:6px}
 #add-btn{padding:10px 14px;border:0;background:var(--accent);color:#fff;border-radius:6px;cursor:pointer}
 ul{list-style:none;padding:0;margin:0}
-li{display:flex;align-items:center;gap:10px;padding:10px;border-bottom:1px solid #f1f5f9}
+li{display:flex;align-items:center;gap:10px;padding:10px;border-bottom:1px solid #f1f5f9;overflow:hidden}
 li .text{flex:1}
-li.completed .text{opacity:0.6;text-decoration:line-through}
+li.completed .text{opacity:0.6;text-decoration:line-through;transition:opacity 160ms ease}
+
+/* Enter/Exit animations for todos */
+.todo-enter{animation:slideDownFade 200ms ease both}
+.todo-exit{animation:fadeOutCollapse 200ms ease both}
+
+@keyframes slideDownFade{
+	from{opacity:0;transform:translateY(-6px)}
+	to{opacity:1;transform:none}
+}
+
+@keyframes fadeOutCollapse{
+	0%{opacity:1;transform:none;height:var(--li-height,auto);padding-top:10px;padding-bottom:10px}
+	100%{opacity:0;transform:translateX(8px) scale(0.98);height:0;padding-top:0;padding-bottom:0;margin:0}
+}
 .btn{background:transparent;border:0;color:var(--muted);cursor:pointer}
 .hint{color:var(--muted);font-size:13px;margin-top:12px}

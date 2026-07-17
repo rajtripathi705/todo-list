@@ -17,6 +17,7 @@
     listEl.innerHTML = '';
     todos.forEach((t, idx) => {
       const li = document.createElement('li');
+      li.className = 'todo-item';
       if (t.done) li.classList.add('completed');
 
       const chk = document.createElement('input');
@@ -31,7 +32,15 @@
       const del = document.createElement('button');
       del.className = 'btn'; del.textContent = '✕';
       del.title = 'Delete';
-      del.addEventListener('click', () => { todos.splice(idx,1); save(todos); render(); });
+      del.addEventListener('click', () => {
+        li.classList.add('todo-exit');
+        li.addEventListener('animationend', () => {
+          const current = load();
+          current.splice(idx, 1);
+          save(current);
+          render();
+        }, { once: true });
+      });
 
       li.appendChild(chk);
       li.appendChild(span);
@@ -44,6 +53,11 @@
     const todos = load();
     todos.unshift({ text: text.trim(), done: false });
     save(todos); render();
+    const first = listEl.firstElementChild;
+    if (first) {
+      first.classList.add('todo-enter');
+      first.addEventListener('animationend', () => first.classList.remove('todo-enter'), { once: true });
+    }
   }
 
   addBtn.addEventListener('click', () => {
